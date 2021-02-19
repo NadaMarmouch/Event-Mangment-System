@@ -33,8 +33,8 @@ public class Event_Mangment   {
             
             
          /////1
-           //REGSTRATION R=new REGSTRATION();
-          // R.setVisible(true);
+           REGSTRATION R=new REGSTRATION();
+           R.setVisible(true);
          //   R.pack();
  
 
