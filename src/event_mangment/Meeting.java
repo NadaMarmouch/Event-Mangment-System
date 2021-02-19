@@ -177,7 +177,7 @@ public class Meeting extends JFrame {
         
 }
     }
-    public void Write(ArrayList<Meetings> data , String path) throws IOException
+    public void Write(ArrayList<Meeting> data , String path) throws IOException
     {
         MyFlie= new File(path);
         MyFlie.createNewFile();

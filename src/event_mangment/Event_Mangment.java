@@ -22,19 +22,15 @@ public class Event_Mangment   {
        
          
      
-       //  Login Log=new Login();
-       //  Log.setVisible(true);
-        // Log. setDefaultCloseOperation(EXIT_ON_CLOSE);
+         Login Log=new Login();
+         Log.setVisible(true);
+         Log. setDefaultCloseOperation(EXIT_ON_CLOSE);
         
-            MyServer server1=new MyServer();
-            server1.run();
-            MyClient client1 = new MyClient();
-            client1.run();
-            
+        
             
          /////1
-           REGSTRATION R=new REGSTRATION();
-           R.setVisible(true);
+           //REGSTRATION R=new REGSTRATION();
+           //R.setVisible(true);
          //   R.pack();
  
 
@@ -74,6 +70,12 @@ public class Event_Mangment   {
           //////10
           // Successful Sucess = new Successful();
           //Sucess.setVisible(true);
+          
+            // MyServer server1=new MyServer();
+            //server1.run();
+            //MyClient client1 = new MyClient();
+            //client1.run();
+            
      
     }
     

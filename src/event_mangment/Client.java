@@ -11,22 +11,25 @@ import java.io.Serializable;
  *
  * @author lenovo_pc
  */
-public class Client implements Serializable {
+
+     public class Client implements Serializable {
+
     
+            private String user;
+            private String phone;
+            private String Email;
+            private String password;
+            private String conf;
+            private String Description;
+            private String Summary;
+            private String DateStart;
+            private String Duration;
+            private String Organizer;
+            private String ParticipationLevel;
+            private String Gender;
+          
+
     
-  private String user;
-    private String phone;
-    private String Email;
-    private String password;
-    private String conf;
-    private String Description;
-    private String Summary;
-    private String DateStart;
-    private String Duration;
-    private String Organizer;
-    private String ParticipationLevel;
-    private String Gender;
-    private String Feedbackk;
     /**
      * @return the user
      */
@@ -110,19 +113,7 @@ public class Client implements Serializable {
         this.conf = conf;
     }
 
-    /**
-     * @return the Feedbackk
-     */
-    public String getFeedbackk() {
-        return Feedbackk;
-    }
 
-    /**
-     * @param Feedbackk the Feedbackk to set
-     */
-    public void setFeedbackk(String Feedbackk) {
-        this.Feedbackk = Feedbackk;
-    }
 
     
 

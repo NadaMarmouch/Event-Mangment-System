@@ -253,11 +253,7 @@ public class REGSTRATION  extends JFrame implements  Serializable
                      {
                      JOptionPane.showMessageDialog(null, "Too short password, password must be 6 characters or more");
                      } 
-                     else if ( conf.getText().length()<=6)
-                     {
-                     JOptionPane.showMessageDialog(null, "please enter to cofirm the password");
-                     } 
-                     else if (! conf.getText().equals(password.getText()))
+                     else if (password.getText().equalsIgnoreCase(conf.getText()))
                      {
                      JOptionPane.showMessageDialog(null, "The Conf Not Equal To Password");
                      }

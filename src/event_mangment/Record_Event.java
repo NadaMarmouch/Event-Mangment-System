@@ -169,24 +169,24 @@ class button implements ActionListener{
             rec.setMajor(major.getText());
             
 
-             bin = new ObjectOutputStream(new FileOutputStream("Meeting.bin"));
+            bin = new ObjectOutputStream(new FileOutputStream("Record_Event.bin"));
             bin.writeObject(rec);
             bin.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Meeting.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Record_Event.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Meeting.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Record_Event.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 bin.close();
             } catch (IOException ex) {
-                Logger.getLogger(Meeting.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Record_Event.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
 }
     }
-    public void Write(ArrayList<Meetings> data , String path) throws IOException
+    public void Write(ArrayList<Record> data , String path) throws IOException
     {
         MyFlie= new File(path);
         MyFlie.createNewFile();

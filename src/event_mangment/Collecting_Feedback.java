@@ -41,8 +41,8 @@ public class Collecting_Feedback extends JFrame{
      
      
        File MyFlie;
-    Client feedbk=new Client();     
-    ArrayList<Client> mydata=new ArrayList<>();
+       User feedbk=new User();     
+       ArrayList<User> mydata=new ArrayList<>();
     
      public  Collecting_Feedback (){
      JPanel C= new JPanel(new FlowLayout()); 
@@ -111,7 +111,7 @@ public class Collecting_Feedback extends JFrame{
         ObjectOutputStream bin=null;
         try {
             
-        feedbk.setFeedbackk(Feedback.getText());
+        feedbk.setFeedBack(Feedback.getText());
         
              bin = new ObjectOutputStream(new FileOutputStream("Collecting_Feedback.bin"));
             bin.writeObject(feedbk);
@@ -130,7 +130,7 @@ public class Collecting_Feedback extends JFrame{
         
 }
     }
-    public void Write(ArrayList<Client> data , String path) throws IOException
+    public void Write(ArrayList<User> data , String path) throws IOException
     {
         MyFlie= new File(path);
         MyFlie.createNewFile();

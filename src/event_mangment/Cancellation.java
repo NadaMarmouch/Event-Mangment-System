@@ -10,6 +10,14 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,11 +32,15 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
  */
 public class Cancellation extends JFrame{
     
-      JLabel Title;
+     JLabel Title;
      JLabel Event_Name;
      JTextField Event_na;
      JButton Yes;
      JButton No;
+    
+        File MyFlie;
+        User clientt=new User();     
+        ArrayList<User> mydata=new ArrayList<>();
     
       public  Cancellation (){
      JPanel Cancle= new JPanel(new FlowLayout()); 
@@ -88,7 +100,47 @@ public class Cancellation extends JFrame{
                    }
               if(e.getSource() ==Yes) {
                   System.exit(0);
-                }
-        } }
+              }
+              
+              ObjectOutputStream bin=null;   
+        try {
+            
+            clientt.setEvent_Name(Event_na.getText());
+
+            bin = new ObjectOutputStream(new FileOutputStream("Cancellation.bin"));
+            bin.writeObject(clientt);
+            bin.close();
+           
+             
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Cancellation.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Cancellation.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                bin.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Cancellation.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }}
+
     }
+    public void Write(ArrayList<User> data , String path) throws IOException
+    {
+        MyFlie= new File(path);
+        MyFlie.createNewFile();
+        try
+        {
+            FileOutputStream myfile = new FileOutputStream(MyFlie);
+            try (ObjectOutputStream in =new ObjectOutputStream(myfile))
+            {
+                in.writeObject(data);
+                in.close();
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }}
+    }    
   
