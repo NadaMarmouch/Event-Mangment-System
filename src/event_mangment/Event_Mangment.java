@@ -22,14 +22,14 @@ public class Event_Mangment   {
        
          
      
-       //  Login Log=new Login();
-       //  Log.setVisible(true);
-        // Log. setDefaultCloseOperation(EXIT_ON_CLOSE);
+         Login Log=new Login();
+         Log.setVisible(true);
+         Log. setDefaultCloseOperation(EXIT_ON_CLOSE);
         
-            MyServer server1=new MyServer();
-            server1.run();
-            MyClient client1 = new MyClient();
-            client1.run();
+           // MyServer server1=new MyServer();
+            //server1.run();
+            //MyClient client1 = new MyClient();
+            //client1.run();
             
             
          /////1
