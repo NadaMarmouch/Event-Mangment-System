@@ -38,9 +38,9 @@ public class Cancellation extends JFrame{
      JButton Yes;
      JButton No;
     
-        File MyFlie;
-        User clientt=new User();     
-        ArrayList<User> mydata=new ArrayList<>();
+         File MyFlie;
+         Client user =new Client();     
+         ArrayList<Client> mydata=new ArrayList<>();
     
       public  Cancellation (){
      JPanel Cancle= new JPanel(new FlowLayout()); 
@@ -90,7 +90,7 @@ public class Cancellation extends JFrame{
               if(e.getSource() ==No) 
               
                  if(Event_na.getText().length()<=0){
-                 JOptionPane.showMessageDialog(null, "please enter your The Event Name");
+                 JOptionPane.showMessageDialog(null, "Please Enter Your The Event Name");
                  
                  }
               else{
@@ -105,10 +105,10 @@ public class Cancellation extends JFrame{
               ObjectOutputStream bin=null;   
         try {
             
-            clientt.setEvent_Name(Event_na.getText());
+            user.setEvent_Name(Event_na.getText());
 
             bin = new ObjectOutputStream(new FileOutputStream("Cancellation.bin"));
-            bin.writeObject(clientt);
+            bin.writeObject(user);
             bin.close();
            
              
@@ -125,7 +125,7 @@ public class Cancellation extends JFrame{
         }}
 
     }
-    public void Write(ArrayList<User> data , String path) throws IOException
+    public void Write(ArrayList<Client> data , String path) throws IOException
     {
         MyFlie= new File(path);
         MyFlie.createNewFile();

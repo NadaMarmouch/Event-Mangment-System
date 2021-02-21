@@ -27,7 +27,9 @@ import java.io.Serializable;
             private String Organizer;
             private String ParticipationLevel;
             private String Gender;
-          
+            private String FeedBack;
+            private String Event_Name;
+
 
     
     /**
@@ -111,6 +113,34 @@ import java.io.Serializable;
      */
     public void setConf(String conf) {
         this.conf = conf;
+    }
+
+    /**
+     * @return the FeedBack
+     */
+    public String getFeedBack() {
+        return FeedBack;
+    }
+
+    /**
+     * @param FeedBack the FeedBack to set
+     */
+    public void setFeedBack(String FeedBack) {
+        this.FeedBack = FeedBack;
+    }
+
+    /**
+     * @return the Event_Name
+     */
+    public String getEvent_Name() {
+        return Event_Name;
+    }
+
+    /**
+     * @param Event_Name the Event_Name to set
+     */
+    public void setEvent_Name(String Event_Name) {
+        this.Event_Name = Event_Name;
     }
 
 

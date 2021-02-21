@@ -104,6 +104,7 @@
 
             signup.addActionListener(new button());
            loginButton.addActionListener(new button());
+           showPassword.addActionListener(new button());
 
       }
 
@@ -124,19 +125,18 @@
                 x.setVisible(true);
                }
 
-               if(e.getSource() ==loginButton) {
-
+              if(e.getSource() ==loginButton) {
                    String userText;             
                    String passText;             
                    userText = userna.getText();
                    passText = pass.getText();
 
-                if(userna.equals(userText) && pass.equals(passText)) {
+               if(userna.equals(userText) && pass.equals(passText)) {
                        JOptionPane.showMessageDialog(null, "Login ");
                    } 
 
                 else if(userna.equals("") && pass.equals("")){
-                     JOptionPane.showMessageDialog(null,"Please insert Username and Password");
+                    JOptionPane.showMessageDialog(null,"Please insert Username and Password");
                    }
                  else {
 
@@ -156,7 +156,7 @@
                     pass.setEchoChar((char) 0);
                }
                 } 
-              else {
+                else {
                pass.setEchoChar('*');
                 }
 
@@ -209,3 +209,44 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+//  String gmail = "Kareem@gmail";
+//               if(e.getSource() ==loginButton) {
+//                try { 
+//                   String userText;             
+//                   String passText;             
+//                   userText = userna.getText();
+//                   passText = pass.getText();
+//                   
+//                 if (gmail.equals(userText)) {
+//
+//                    JOptionPane.showMessageDialog(this, "Login Successful");
+//                    A.calling();
+//
+//                } else if (r.readFile("D:\\Teacher.bin").contains(userText)) {
+//                    JOptionPane.showMessageDialog(this, "Login Successful");
+//                    G.Frame();
+//                } else if (r.readFile("D:\\Students.bin").contains(userText)) {
+//                    JOptionPane.showMessageDialog(this, "Login Successful");
+//                    Studentt S = new Studentt();
+//
+//                } else {
+//                    JOptionPane.showMessageDialog(this, "Invalid Username or Password");
+//                }
+//                   } 
+//              catch (IOException ex) {
+//                Logger.getLogger(REGSTRATION.class.getName()).log(Level.SEVERE, null, ex);
+//            } 
+//
+//        }
+//     }}

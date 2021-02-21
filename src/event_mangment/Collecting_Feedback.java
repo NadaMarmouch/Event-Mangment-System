@@ -39,10 +39,10 @@ public class Collecting_Feedback extends JFrame{
      JButton Submit;
      JButton Reset;
      
-     
-       File MyFlie;
-       User feedbk=new User();     
-       ArrayList<User> mydata=new ArrayList<>();
+        File MyFlie;
+        Client feedbk=new Client();     
+        ArrayList<Client> mydata=new ArrayList<>();
+       
     
      public  Collecting_Feedback (){
      JPanel C= new JPanel(new FlowLayout()); 
@@ -96,7 +96,7 @@ public class Collecting_Feedback extends JFrame{
        if(AEvent.getSource().equals(Submit))
        {
            if(Feedback.getText().length()<=0){
-               JOptionPane.showMessageDialog(null, "please enter your FeedBack");
+               JOptionPane.showMessageDialog(null, "Please Enter Your FeedBack");
            }
            else{
                    Successful Sucess = new Successful();
@@ -111,9 +111,9 @@ public class Collecting_Feedback extends JFrame{
         ObjectOutputStream bin=null;
         try {
             
-        feedbk.setFeedBack(Feedback.getText());
+             feedbk.setFeedBack(Feedback.getText());
         
-             bin = new ObjectOutputStream(new FileOutputStream("Collecting_Feedback.bin"));
+            bin = new ObjectOutputStream(new FileOutputStream("Collecting_Feedback.bin"));
             bin.writeObject(feedbk);
             bin.close();
         } catch (FileNotFoundException ex) {
@@ -130,7 +130,7 @@ public class Collecting_Feedback extends JFrame{
         
 }
     }
-    public void Write(ArrayList<User> data , String path) throws IOException
+    public void Write(ArrayList<Client> data , String path) throws IOException
     {
         MyFlie= new File(path);
         MyFlie.createNewFile();

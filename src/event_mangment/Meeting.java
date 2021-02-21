@@ -141,7 +141,7 @@ public class Meeting extends JFrame {
                  JOptionPane.showMessageDialog(null, "please check your The Event Name again");
                  }
                  else  if(Start_ti.getText().length()!=2){
-                 JOptionPane.showMessageDialog(null, "please enter The Start Time ");
+                 JOptionPane.showMessageDialog(null, "please Enter The Start Time ");
                   }
                  else if ( End_ti.getText().length()!=2){
                  JOptionPane.showMessageDialog(null, "Please Enter The End Time"); 

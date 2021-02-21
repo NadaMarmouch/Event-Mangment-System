@@ -172,11 +172,14 @@ class button implements ActionListener{
             bin = new ObjectOutputStream(new FileOutputStream("Record_Event.bin"));
             bin.writeObject(rec);
             bin.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Record_Event.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Record_Event.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
+                } 
+                catch (FileNotFoundException ex) {
+                    Logger.getLogger(Record_Event.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                catch (IOException ex) {
+                    Logger.getLogger(Record_Event.class.getName()).log(Level.SEVERE, null, ex);
+                } 
+                finally {
             try {
                 bin.close();
             } catch (IOException ex) {
