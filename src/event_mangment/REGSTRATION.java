@@ -19,6 +19,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 /**
  *
@@ -43,18 +45,20 @@ public class REGSTRATION  extends JFrame implements  Serializable
      JComboBox year; 
      JLabel password;
      JLabel Comfirm_password;
-     JTextField pass;
-     JTextField conf;
+     JPasswordField pass;
+     JPasswordField conf;
      JLabel Email_address;
      JTextField Email;
      JButton SubmitButton;
      JButton cancelButton;
+     JCheckBox showPassword;
+     JCheckBox show_confirm_pass;
      JPanel panel;
     
         
-     File MyFlie;
-    Client user=new Client();     
-    ArrayList<Client> mydata=new ArrayList<>();
+         File MyFlie;
+         Client user=new Client();     
+         ArrayList<Client> mydata=new ArrayList<>();
      
       private String dates[] 
         = { "1", "2", "3", "4", "5", 
@@ -183,7 +187,7 @@ public class REGSTRATION  extends JFrame implements  Serializable
          password.setLocation(100, 300); 
          frame.add(password);
         
-         pass = new JTextField(); 
+         pass = new JPasswordField(); 
          pass = new JPasswordField(10);
          pass.setSize(200, 20); 
          pass.setLocation(200, 300); 
@@ -194,7 +198,7 @@ public class REGSTRATION  extends JFrame implements  Serializable
          Comfirm_password.setLocation(100, 350); 
          frame.add(Comfirm_password);
         
-         conf = new JTextField();
+         conf = new JPasswordField();
          conf = new JPasswordField(10);
          conf .setSize(200, 20); 
          conf .setLocation(200, 350); 
@@ -203,28 +207,44 @@ public class REGSTRATION  extends JFrame implements  Serializable
          Email_address= new JLabel("Email_address");
          Email_address.setSize(100, 20); 
          Email_address.setLocation(100, 400); 
-        frame.add(Email_address);
+         frame.add(Email_address);
         
          Email = new JTextField(); 
          Email .setSize(200, 20); 
          Email .setLocation(200, 400); 
          frame.add(Email);
          
-        SubmitButton = new JButton("Submit"); 
-        SubmitButton.setSize(100, 20); 
-        SubmitButton.setLocation(150, 450);
-        SubmitButton.addActionListener(new button1());
-        frame.add(SubmitButton); 
+         SubmitButton = new JButton("Submit"); 
+         SubmitButton.setSize(100, 20); 
+         SubmitButton.setLocation(150, 450);
+         SubmitButton.addActionListener(new button1());
+         frame.add(SubmitButton); 
   
-        cancelButton = new JButton("Cancel"); 
-        cancelButton.setSize(100, 20); 
-        cancelButton.setLocation(270, 450); 
-        frame.add(cancelButton); 
-       // cancelButton.addActionListener(this);
-        add(frame);
+         cancelButton = new JButton("Cancel"); 
+         cancelButton.setSize(100, 20); 
+         cancelButton.setLocation(270, 450); 
+         frame.add(cancelButton); 
+         // cancelButton.addActionListener(this);
+         add(frame);
         
-    SubmitButton.addActionListener(new button1());
-    cancelButton.addActionListener(new button1());
+         showPassword = new JCheckBox("Show Password");
+         showPassword.setSize(120, 20); 
+         showPassword.setLocation(450, 300); 
+         frame.add(showPassword);
+         add(frame);
+             
+         show_confirm_pass = new JCheckBox("Show confirm pass");
+         show_confirm_pass.setSize(150, 20); 
+         show_confirm_pass.setLocation(450, 350);
+         frame.add(show_confirm_pass);
+         add(frame);
+
+         
+            SubmitButton.addActionListener(new button1());
+            cancelButton.addActionListener(new button1());
+            showPassword.addActionListener(new button1());
+            show_confirm_pass.addActionListener(new button1());
+    
     }
     
     
@@ -253,15 +273,22 @@ public class REGSTRATION  extends JFrame implements  Serializable
                      {
                      JOptionPane.showMessageDialog(null, "Too short password, password must be 6 characters or more");
                      } 
-                     else if (password.getText().equalsIgnoreCase(conf.getText()))
+                     else if (!(password.getText().equalsIgnoreCase(conf.getText())))
                      {
                      JOptionPane.showMessageDialog(null, "The Conf Not Equal To Password");
                      }
-                     else if (Email.getText().length()<=0)
+                     
+                     else if (Email.getText().length()<=9)
                      {
                      JOptionPane.showMessageDialog(null, "wrong format of the email please write it like this format:");
                      JOptionPane.showMessageDialog(null, "username@gmail.com");
                      }
+//                     String validate = "@gmail.com";
+//                     String email="";
+//                     if(validate.equals(email.substring(email.length()-9, email.length()))){
+//                           JOptionPane.showMessageDialog(null, "wrong format of the email please enter like that (username@gmail.com):");
+//                     }
+   
                else 
                     {
                         user.setGender(Gender.getText());
@@ -270,17 +297,36 @@ public class REGSTRATION  extends JFrame implements  Serializable
                         }
                       else user.setGender("male");
                      
-                       Meeting M= new Meeting();
-                       M.setVisible(true);
+                      Meeting M= new Meeting();
+                      M.setVisible(true);
                        
                     }
+                     
                }
                
             if(e.getSource() ==cancelButton) 
             {
               System.exit(0);
             }
-           
+            
+              if (e.getSource() == showPassword) {
+                if (showPassword.isSelected()) {
+                    pass.setEchoChar((char) 0);
+               } 
+                }
+              else {
+               pass.setEchoChar('*');
+               
+                }
+              
+               if (show_confirm_pass.isSelected()) {
+                    conf.setEchoChar((char) 0);
+               }
+              else {
+               conf.setEchoChar('*');
+              
+               }
+              
                    
                     ObjectOutputStream bin=null;   
         try {
@@ -309,6 +355,10 @@ public class REGSTRATION  extends JFrame implements  Serializable
                 Logger.getLogger(REGSTRATION.class.getName()).log(Level.SEVERE, null, ex);
             }
         }}
+
+        private boolean isValid(String email) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
 
     }
     public void Write(ArrayList<Client> data , String path) throws IOException
