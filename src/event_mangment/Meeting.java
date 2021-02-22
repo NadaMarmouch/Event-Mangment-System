@@ -5,26 +5,14 @@
  */
 package event_mangment;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /**
@@ -165,13 +153,7 @@ public class Meeting extends JFrame {
               
                 if(Eventna.getText().length()<=0){
                  JOptionPane.showMessageDialog(null, "please check your The Event Name again");
-                 }
-                 else  if(Start_ti.getText().length()!=2){
-                 JOptionPane.showMessageDialog(null, "please Enter The Start Time ");
-                  }
-                 else if ( End_ti.getText().length()!=2){
-                 JOptionPane.showMessageDialog(null, "Please Enter The End Time"); 
-                  }
+                   }
                  else{
                       Record_Event rec =new  Record_Event();
                       rec.setVisible(true);

@@ -234,7 +234,7 @@ public class REGSTRATION  extends JFrame implements  Serializable
          add(frame);
              
          show_confirm_pass = new JCheckBox("Show confirm pass");
-         show_confirm_pass.setSize(150, 20); 
+         show_confirm_pass.setSize(140, 20); 
          show_confirm_pass.setLocation(450, 350);
          frame.add(show_confirm_pass);
          add(frame);
@@ -273,7 +273,7 @@ public class REGSTRATION  extends JFrame implements  Serializable
                      {
                      JOptionPane.showMessageDialog(null, "Too short password, password must be 6 characters or more");
                      } 
-                     else if ((password.getText().equalsIgnoreCase(conf.getText())))
+                     else if ((password.getText().equals(conf.getText())))
                      {
                      JOptionPane.showMessageDialog(null, "The Conf Not Equal To Password");
                      }

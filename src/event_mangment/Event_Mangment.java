@@ -36,7 +36,7 @@ public class Event_Mangment   {
 
          //////2
         // Meeting M= new Meeting();
-         //M.setVisible(true);
+        // M.setVisible(true);
         
 
           //////3
