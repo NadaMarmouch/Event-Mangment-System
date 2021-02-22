@@ -37,7 +37,6 @@
         JLabel title; 
         JLabel Username;
         JLabel password;
-
         JTextField userna;
         JPasswordField pass;
         JButton loginButton;
@@ -125,31 +124,28 @@
                 x.setVisible(true);
                }
 
-              if(e.getSource() ==loginButton) {
-                   String userText;             
-                   String passText;             
-                   userText = userna.getText();
-                   passText = pass.getText();
+               if (e.getSource().equals(loginButton)) {
+                String userText;
+                String passText;
+                userText = "Event@gmail.com";
+                passText = "123456";
 
-               if(userna.equals(userText) && pass.equals(passText)) {
-                       JOptionPane.showMessageDialog(null, "Login ");
-                   } 
+                if (userna.equals(userText) && pass.equals(passText)) {
+                    JOptionPane.showMessageDialog(null, "Login ");
+                } else if (userna.equals("") && pass.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please insert Username and Password");
+                } else if(!userna.equals(userText)&&pass.equals(passText)){
 
-                else if(userna.equals("") && pass.equals("")){
-                    JOptionPane.showMessageDialog(null,"Please insert Username and Password");
-                   }
-                 else {
+                    JOptionPane.showMessageDialog(null, "Wrong Username / Password");
+                    userna.setText("");
+                    pass.setText("");
 
-                JOptionPane.showMessageDialog(null,"Wrong Username / Password");
-                userna.setText("");
-                pass.setText("");
-
-              }
-
-
-                  Meeting M= new Meeting();
-                  M.setVisible(true);
-               }
+                }
+                else {
+                Meeting M = new Meeting();
+                M.setVisible(true);
+            }
+            }
 
            if (e.getSource() == showPassword) {
                 if (showPassword.isSelected()) {
@@ -164,6 +160,8 @@
 
 
                  try {
+                     user.setPassword(pass.getText());
+                     user.setUser(user.getUser());
 
                  bin = new ObjectOutputStream(new FileOutputStream("Login.bin"));
                 bin.writeObject(user);
@@ -206,12 +204,6 @@
     }
 
     }
-
-
-
-
-
-
 
 
 

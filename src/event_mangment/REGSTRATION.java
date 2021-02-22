@@ -273,12 +273,12 @@ public class REGSTRATION  extends JFrame implements  Serializable
                      {
                      JOptionPane.showMessageDialog(null, "Too short password, password must be 6 characters or more");
                      } 
-                     else if (!(password.getText().equalsIgnoreCase(conf.getText())))
+                     else if ((password.getText().equalsIgnoreCase(conf.getText())))
                      {
                      JOptionPane.showMessageDialog(null, "The Conf Not Equal To Password");
                      }
                      
-                     else if (Email.getText().length()<=9)
+                     else if (Email.getText().length()<9)
                      {
                      JOptionPane.showMessageDialog(null, "wrong format of the email please write it like this format:");
                      JOptionPane.showMessageDialog(null, "username@gmail.com");

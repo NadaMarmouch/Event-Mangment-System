@@ -71,10 +71,10 @@ public class Event_Mangment   {
           // Successful Sucess = new Successful();
           //Sucess.setVisible(true);
           
-            // MyServer server1=new MyServer();
-            //server1.run();
-            //MyClient client1 = new MyClient();
-            //client1.run();
+            MyServer server1=new MyServer();
+            server1.run();
+            MyClient client1 = new MyClient();
+            client1.run();
             
      
     }

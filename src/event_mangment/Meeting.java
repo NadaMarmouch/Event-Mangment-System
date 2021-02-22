@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -41,9 +42,21 @@ public class Meeting extends JFrame {
      JLabel End_time;
      JLabel RoomID;
      JLabel Room_ID;
+     
+     JLabel time;
+     JComboBox end; 
+     JComboBox start;
+     
       JButton Submit;
      JButton Cancle;
      
+      private String startt[] 
+        = { "10:00 AM", "11:00 AM", "12:30 PM", "01:45 PM", "03:00 PM", 
+            "04:00 PM", "05:30 PM", "06:00 PM", "08:00 PM" ,"09:30 PM"}; 
+      
+       private String endd[] 
+        = { "10:30 AM", "12:00 PM", "01:30 PM", "02:45 PM", "04:00 PM", 
+            "05:00 PM", "06:30 PM", "07:00 PM", "09:00 PM" ,"10:30 PM"}; 
      File MyFlie;
     Meetings meeting=new Meetings();   
     ArrayList<Meetings> mydata=new ArrayList<>();
@@ -82,26 +95,39 @@ public class Meeting extends JFrame {
           Start_time.setLocation(100, 150);
           Meet.add(Start_time); 
           add(Meet);
-        
-          Start_ti = new JTextField();  
-          Start_ti.setSize(50, 20); 
-          Start_ti.setLocation(200, 150); 
-          Meet.add(Start_ti); 
-           add(Meet);
+          
+            start = new JComboBox(startt); 
+            start.setSize(80, 20); 
+            start.setLocation(200, 150);
+            Meet.add(start); 
+
+//          Start_ti = new JTextField();  
+//          Start_ti.setSize(50, 20); 
+//          Start_ti.setLocation(200, 150); 
+//          Meet.add(Start_ti); 
+//           add(Meet);
            
+       
+  
           End_time= new JLabel("End_time");
           End_time.setSize(100, 20); 
           End_time.setLocation(300, 150);
           Meet.add(End_time); 
           add(Meet);
         
-          End_ti = new JTextField();  
-          End_ti.setSize(50, 20); 
-          End_ti.setLocation(370, 150); 
-          Meet.add(End_ti); 
-           add(Meet);
+         end = new JComboBox(endd); 
+         end.setSize(80, 20); 
+         end.setLocation(370, 150); 
+         Meet.add(end); 
+         
+         
+//          End_ti = new JTextField();  
+//          End_ti.setSize(50, 20); 
+//          End_ti.setLocation(370, 150); 
+//          Meet.add(End_ti); 
+//           add(Meet);
            
-           RoomID= new JLabel("RoomID");
+          RoomID= new JLabel("RoomID");
           RoomID.setSize(100, 20); 
           RoomID.setLocation(100,200 );
           Meet.add(RoomID); 
@@ -112,9 +138,9 @@ public class Meeting extends JFrame {
           Room_ID.setLocation(200, 200); 
           Room_ID.setText(Integer.toString(meeting.getRoomID()));
           Meet.add(Room_ID); 
-           add(Meet);
+          add(Meet);
           
-          Submit= new JButton("Submit"); 
+         Submit= new JButton("Submit"); 
          Submit.setSize(100, 20); 
          Submit.setLocation(170, 250);
          Meet.add(Submit);
